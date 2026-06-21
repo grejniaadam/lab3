@@ -46,6 +46,17 @@ Ten dokument definiuje globalne standardy i wytyczne dla projektu Mailer, aby za
 - Wszystkie nowe funkcje powinny mieć odpowiadające testy.
 - Uruchamiaj testy lokalnie przed commitowaniem.
 
+## Strategia testowania
+Zwróć się do "Mailer Complete Testing Skill" dla szczegółów.
+
+Minimum requirements:
+- Każda funkcja: min. 2 testy
+- Edge cases + error handling
+- Mocking external services
+- Coverage: min. 80%
+
+Polecenie: "Use mailer-complete-testing skill"
+
 ## Bezpieczeństwo (secrets, env vars)
 - Nigdy nie umieszczaj sekretów, kluczy API ani haseł w repozytorium.
 - Wykorzystuj zmienne środowiskowe (`.env`, systemowe zmienne środowiskowe) do konfiguracji wrażliwych danych.
