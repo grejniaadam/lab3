@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <p>Hi {{ user_name or "Subscriber" }},</p>
+  <p>Please confirm your email address by clicking the button below.</p>
+  <p><a class="button" href="{{ confirmation_link }}">Confirm Email</a></p>
+{% endblock %}

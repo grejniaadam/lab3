@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mailer</title>
+  </head>
+  <body>
+    <h1>Mailer</h1>
+    {% if error %}
+    <p style="color: red;">{{ error }}</p>
+    {% endif %}
+    <section>
+      <h2>Subscribe</h2>
+      <form action="/subscribe" method="post">
+        <label>Email: <input type="email" name="email" required></label>
+        <label>Name: <input type="text" name="name"></label>
+        <button type="submit">Subscribe</button>
+      </form>
+    </section>
+    <section>
+      <h2>Subscribers</h2>
+      <ul>
+        {% for subscriber in subscribers %}
+        <li>{{ subscriber.name or "(no name)" }} - {{ subscriber.email }}</li>
+        {% endfor %}
+      </ul>
+    </section>
+    <section>
+      <h2>Send Email</h2>
+      <form action="/send" method="post">
+        <label>Recipient: <input type="email" name="recipient" required></label>
+        <label>Subject: <input type="text" name="subject" required></label>
+        <label>Body: <textarea name="body" required></textarea></label>
+        <label>HTML (optional): <textarea name="html"></textarea></label>
+        <button type="submit">Send</button>
+      </form>
+    </section>
+    <section>
+      <h2>Tests</h2>
+      <p><a href="/tests">Open Test Runner</a> — run the test suite and view output.</p>
+    </section>
+  </body>
+</html>

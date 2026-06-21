@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Test Runner</title>
+    <style>
+      body { font-family: Arial, sans-serif; padding: 24px; }
+      .passed { color: green; }
+      .failed { color: red; }
+      pre { background:#f4f4f4; padding:12px; border-radius:4px; overflow:auto; }
+      .controls { margin-bottom: 12px; }
+    </style>
+  </head>
+  <body>
+    <h1>Test Runner</h1>
+    <div class="controls">
+      <form action="/run-tests" method="post">
+        <button type="submit">Run Tests</button>
+      </form>
+      <p><a href="/">Back to Home</a></p>
+    </div>
+
+    {% if result is not none %}
+      {% if result.passed %}
+        <p class="passed">All tests passed.</p>
+      {% else %}
+        <p class="failed">Some tests failed or timed out.</p>
+      {% endif %}
+      <h3>Output</h3>
+      <pre>{{ result.output }}</pre>
+    {% else %}
+      <p>Press the button to run the test suite.</p>
+    {% endif %}
+  </body>
+</html>

@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <p>Hello {{ user_name or "Subscriber" }},</p>
+  <p>Welcome to our mailing list! We are happy to have you on board.</p>
+  <p><a class="button" href="{{ action_url }}">Get Started</a></p>
+{% endblock %}

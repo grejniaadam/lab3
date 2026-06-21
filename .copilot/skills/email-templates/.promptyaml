@@ -1,0 +1,19 @@
+name: email-templates
+description: |
+  Skill dla projektowania, tworzenia i testowania szablonów email w projekcie Mailer.
+topics:
+  - templates
+  - email
+  - flask
+  - html
+  - testing
+applyTo:
+  - path: "**/templates/**"
+  - path: "**/mailer/**"
+  - path: "**/tests/**"
+languageDetection:
+  preferredLanguage: python
+  patterns:
+    - "template"
+    - "email"
+    - "jinja"

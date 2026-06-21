@@ -1,0 +1,7 @@
+Hi {{ user_name or "Subscriber" }},
+
+Please confirm your email address using the link below:
+
+{{ confirmation_link }}
+
+Thank you.

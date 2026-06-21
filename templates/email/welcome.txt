@@ -1,0 +1,7 @@
+Hello {{ user_name or "Subscriber" }},
+
+Welcome to our mailing list! We are happy to have you on board.
+
+Get Started: {{ action_url }}
+
+Thank you for using Mailer.

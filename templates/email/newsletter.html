@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <p>Hello {{ user_name or "Subscriber" }},</p>
+  <p>{{ newsletter_summary }}</p>
+  {% if articles %}
+  <ul>
+    {% for article in articles %}
+    <li><strong>{{ article.title }}</strong><br>{{ article.description }}</li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+  <p>To unsubscribe, click <a href="{{ unsubscribe_url }}">here</a>.</p>
+{% endblock %}

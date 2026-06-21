@@ -1,0 +1,11 @@
+Hello {{ user_name or "Subscriber" }},
+
+{{ newsletter_summary }}
+
+{% if articles %}
+{% for article in articles %}
+- {{ article.title }}: {{ article.description }}
+{% endfor %}
+{% endif %}
+
+Unsubscribe: {{ unsubscribe_url }}
