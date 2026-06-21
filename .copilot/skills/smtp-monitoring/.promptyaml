@@ -1,0 +1,17 @@
+name: smtp-monitoring
+description: Skill dla monitorowania połączeń SMTP i testowania wysyłania emaili
+topics:
+  - smtp
+  - email
+  - monitoring
+  - testing
+applyTo:
+  - path: "**/mailer/**"
+  - path: "**/tests/**"
+  - path: "**/*.py"
+languageDetection:
+  preferredLanguage: python
+  patterns:
+    - "smtp"
+    - "email"
+    - "monitor"

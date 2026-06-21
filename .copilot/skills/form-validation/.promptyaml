@@ -1,0 +1,18 @@
+name: form-validation
+description: Skill dla walidacji formularzy Flask i ochrony przed błędnymi danymi
+topics:
+  - flask
+  - validation
+  - forms
+  - security
+applyTo:
+  - path: "**/mailer/**"
+  - path: "**/templates/**"
+  - path: "**/*.py"
+languageDetection:
+  preferredLanguage: python
+  patterns:
+    - "Flask"
+    - "form"
+    - "validate"
+    - "wtforms"

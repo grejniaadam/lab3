@@ -1,0 +1,58 @@
+name: Form Validation Agent
+description: >
+  Agent do tworzenia i weryfikacji walidacji formularzy Flask w projekcie Mailer.
+  Korzysta z nowego skillu Form Validation, aby przeanalizować UI oraz zabezpieczenia danych z formularzy.
+
+model: claude-3-5-sonnet
+
+purpose: |
+  Agent analizuje formularze w projekcie Mailer, generuje rekomendacje walidacji,
+  tworzy przykładowy kod walidujący dane i dokumentację zachowania dla formularzy.
+
+capabilities:
+  - code-analysis
+  - validation
+  - documentation
+  - security
+
+activation:
+  trigger: "Run form validation agent"
+  keywords:
+    - "form validation"
+    - "Flask form"
+    - "validate input"
+    - "security"
+
+workflow:
+  - step1: Scan form code
+    description: Przeanalizuj `mailer/web.py` oraz szablony formularzy w `templates/`.
+  - step2: Extract validation patterns
+    description: Znajdź pola wymagające walidacji (email, tekst, długość).
+  - step3: Generate validation helper
+    description: Stwórz kod walidujący dane formularzy po stronie serwera.
+  - step4: Document
+    description: Dodaj instrukcję obsługi walidacji w Markdown.
+
+tools:
+  - fileRead
+  - fileWrite
+  - codeAnalysis
+  - gitDiff
+
+memory:
+  - validationPatterns
+  - formFields
+  - securityBestPractices
+
+restrictions:
+  - noBreakingChanges: true
+  - mustIncludeTypeHints: true
+  - validateMarkdown: true
+
+output:
+  format: markdown
+  location: docs/
+  structure:
+    - overview
+    - examples
+    - troubleshooting

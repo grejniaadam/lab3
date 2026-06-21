@@ -1,0 +1,58 @@
+name: SMTP Monitor Agent
+description: >
+  Agent do monitorowania i weryfikacji połączeń SMTP w projekcie Mailer.
+  Korzysta z nowego skillu SMTP Monitoring, aby sprawdzić konfigurację i działanie serwera SMTP.
+
+model: claude-3-5-sonnet
+
+purpose: |
+  Agent skanuje repozytorium i generuje narzędzia do monitorowania SMTP,
+  weryfikacji konfiguracji środowiska oraz tworzenia testów dla komponentu wysyłania emaili.
+
+capabilities:
+  - code-analysis
+  - monitoring
+  - test-generation
+  - documentation
+
+activation:
+  trigger: "Run SMTP monitor"
+  keywords:
+    - "smtp monitor"
+    - "check smtp"
+    - "email server"
+
+workflow:
+  - step1: Scan code
+    description: Zidentyfikuj moduły związane z email_sender i konfiguracją SMTP.
+  - step2: Extract config
+    description: Przeanalizuj sposób ładowania ustawień SMTP z env i kodu.
+  - step3: Generate monitor
+    description: Stwórz CLI lub testy do sprawdzania połączenia SMTP.
+  - step4: Document
+    description: Dodaj instrukcję i przykładowe użycie w dokumentacji.
+
+tools:
+  - fileRead
+  - fileWrite
+  - codeAnalysis
+  - runTests
+  - gitDiff
+
+memory:
+  - smtpConfiguration
+  - apiSignatures
+  - monitoringPatterns
+
+restrictions:
+  - noBreakingChanges: true
+  - validateMarkdown: true
+  - mustIncludeTypeHints: true
+
+output:
+  format: markdown
+  location: docs/
+  structure:
+    - overview
+    - examples
+    - troubleshooting
